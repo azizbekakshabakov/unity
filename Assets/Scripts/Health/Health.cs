@@ -4,24 +4,31 @@ public class Health : MonoBehaviour
 {
     private float startingHealth = 3f;
     public float currentHealth;
+    private Animator animator;
+    private bool dead;
 
     private void Awake() {
         currentHealth = startingHealth;
+        animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(float damage) {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
 
         if (currentHealth > 0) {
+            animator.SetTrigger("damage");
 
         } else {
+            if (! dead) {
+                animator.SetTrigger("death");
+                GetComponent<PlayerMove>().enabled = false;
+                this.dead = true;
+            }
 
         }
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            TakeDamage(1);
-        }
+    public void AddHealth() {
+        currentHealth = Mathf.Clamp(currentHealth + 1f, 0, startingHealth);
     }
 }

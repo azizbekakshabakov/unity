@@ -63,12 +63,14 @@
     <Analyzer Include="/home/aziz/.var/app/com.unity.UnityHub/Editors/2022.3.21f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/BulletScript.cs" />
-    <Compile Include="Assets/Scripts/PlayerShoot.cs" />
+    <Compile Include="Assets/Scripts/Player/BulletScript.cs" />
     <Compile Include="Assets/Scripts/Health/Health.cs" />
-    <Compile Include="Assets/Scripts/PlayerMove.cs" />
-    <Compile Include="Assets/Scripts/Door.cs" />
+    <Compile Include="Assets/Scripts/HealthBonus.cs" />
+    <Compile Include="Assets/Scripts/EnemySideways.cs" />
     <Compile Include="Assets/Scripts/Health/HealthBar.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerShoot.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerMove.cs" />
+    <Compile Include="Assets/Scripts/Levels/Door.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
