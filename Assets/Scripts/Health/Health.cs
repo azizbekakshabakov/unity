@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class Health : MonoBehaviour
     public float currentHealth;
     private Animator animator;
     private bool dead;
+
+    [SerializeField] private Behaviour[] components;
 
     private void Awake() {
         currentHealth = startingHealth;
@@ -21,7 +24,20 @@ public class Health : MonoBehaviour
         } else {
             if (! dead) {
                 animator.SetTrigger("death");
-                GetComponent<PlayerMove>().enabled = false;
+
+                // if (GetComponent<PlayerMove>() != null)
+                //     GetComponent<PlayerMove>().enabled = false;
+
+                // if (GetComponentInParent<GermanPatrol>() != null)
+                //     GetComponentInParent<GermanPatrol>().enabled = false;
+
+                // if (GetComponent<GermanPunch>() != null)
+                //     GetComponent<GermanPunch>().enabled = false;
+
+                foreach (Behaviour com in components) {
+                    com.enabled = false;
+                }
+
                 this.dead = true;
             }
 

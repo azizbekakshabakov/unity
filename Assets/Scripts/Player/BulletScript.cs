@@ -34,6 +34,10 @@ public class BulletScript : MonoBehaviour
         hit = true;
         boxCollider.enabled = false;
         animator.SetTrigger("hit");
+
+        if (collision.tag == "Enemy") {
+            collision.GetComponent<Health>().TakeDamage(1);
+        }
     }
 
     public void SetDirection(float direction) {

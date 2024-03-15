@@ -72,6 +72,7 @@
     <Compile Include="Assets/Scripts/Player/PlayerShoot.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerMove.cs" />
     <Compile Include="Assets/Scripts/Levels/Door.cs" />
+    <Compile Include="Assets/Scripts/Enemies/EnemyPatrol.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
