@@ -31,11 +31,12 @@ public class Health : MonoBehaviour
             // }
         } else {
             if (! dead) {
-                animator.SetTrigger("death");
-
                 foreach (Behaviour com in components) {
                     com.enabled = false;
                 }
+
+                animator.SetBool("on_ground", true);
+                animator.SetTrigger("death");
 
                 this.dead = true;
                 //звук при смерти
