@@ -7,6 +7,9 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] bullets;
 
+    //звук выстрла
+    [SerializeField] private AudioClip shootSound;
+
     // время перезарядки
     private float shootReload = 0.5f;
     private float shootTimer = Mathf.Infinity;
@@ -26,6 +29,9 @@ public class PlayerShoot : MonoBehaviour
     }
 
     private void Shoot() {
+        //издать звук
+        SoundManager.instance.PlaySound(shootSound);
+
         animator.SetTrigger("shoot");
 
         // сбросить таймер ожидания выстрела

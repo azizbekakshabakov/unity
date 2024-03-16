@@ -6,13 +6,18 @@ public class Health : MonoBehaviour
     private float startingHealth = 3f;
     public float currentHealth;
     private Animator animator;
-    private bool dead;
+    public bool dead { get; private set; }
+
+    // private Score score;
 
     [SerializeField] private Behaviour[] components;
+
+    [SerializeField] private AudioClip hurtSound;
 
     private void Awake() {
         currentHealth = startingHealth;
         animator = GetComponent<Animator>();
+        // score = GetComponent<Score>();
     }
 
     public void TakeDamage(float damage) {
@@ -21,24 +26,20 @@ public class Health : MonoBehaviour
         if (currentHealth > 0) {
             animator.SetTrigger("damage");
 
+            // if (components.Length > 1) {
+                // score.IncrementText(10f);
+            // }
         } else {
             if (! dead) {
                 animator.SetTrigger("death");
-
-                // if (GetComponent<PlayerMove>() != null)
-                //     GetComponent<PlayerMove>().enabled = false;
-
-                // if (GetComponentInParent<GermanPatrol>() != null)
-                //     GetComponentInParent<GermanPatrol>().enabled = false;
-
-                // if (GetComponent<GermanPunch>() != null)
-                //     GetComponent<GermanPunch>().enabled = false;
 
                 foreach (Behaviour com in components) {
                     com.enabled = false;
                 }
 
                 this.dead = true;
+                //звук при смерти
+                SoundManager.instance.PlaySound(hurtSound);
             }
 
         }
@@ -46,5 +47,17 @@ public class Health : MonoBehaviour
 
     public void AddHealth() {
         currentHealth = Mathf.Clamp(currentHealth + 1f, 0, startingHealth);
+    }
+
+    public void Respawn() {
+        dead = false;
+
+        AddHealth();
+        animator.ResetTrigger("die");
+        animator.Play("Idle");
+
+        foreach (Behaviour component in components) {
+            component.enabled = true;
+        }
     }
 }

@@ -64,15 +64,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Player/BulletScript.cs" />
+    <Compile Include="Assets/Scripts/Score/Score.cs" />
     <Compile Include="Assets/Scripts/Enemies/EnemySideways.cs" />
     <Compile Include="Assets/Scripts/Health/Health.cs" />
+    <Compile Include="Assets/Scripts/Menu/Select.cs" />
     <Compile Include="Assets/Scripts/Enemies/EnemyPunch.cs" />
     <Compile Include="Assets/Scripts/HealthBonus.cs" />
+    <Compile Include="Assets/Scripts/Menu/MenuManager.cs" />
     <Compile Include="Assets/Scripts/Health/HealthBar.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerShoot.cs" />
+    <Compile Include="Assets/Scripts/SoundManager.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerMove.cs" />
     <Compile Include="Assets/Scripts/Levels/Door.cs" />
     <Compile Include="Assets/Scripts/Enemies/EnemyPatrol.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerRespawn.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
   </ItemGroup>
   <ItemGroup>

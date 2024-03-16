@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 59a7a2de056748ba9ac20593c1d18bf3
+guid: 74d70d4ef776d71da8a59da685d613ff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - boxCollider: {instanceID: 0}
-  - hitSound: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

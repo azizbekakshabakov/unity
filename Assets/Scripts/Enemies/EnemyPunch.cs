@@ -15,6 +15,8 @@ public class EnemyPunch : MonoBehaviour
 
     private EnemyPatrol enemyPatrol;
 
+    [SerializeField] private AudioClip hitSound;
+    
     private void Awake() {
         animator = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
@@ -24,9 +26,10 @@ public class EnemyPunch : MonoBehaviour
         punchTimer += Time.deltaTime;
 
         if (PlayerVisible()) {
-            if (punchTimer > punchTimeout) {
+            if (punchTimer > punchTimeout && playerHealth.currentHealth > 0) {
                 punchTimer = 0;
                 animator.SetTrigger("hit");
+                SoundManager.instance.PlaySound(hitSound);
             }
         }
 
