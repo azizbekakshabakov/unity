@@ -53,6 +53,8 @@ public class Health : MonoBehaviour
         dead = false;
 
         AddHealth();
+        AddHealth();
+        AddHealth();
         animator.ResetTrigger("die");
         animator.Play("Idle");
 
